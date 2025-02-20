@@ -19,15 +19,15 @@ export const SAMPLE_SIDEBAR = {
       items: [
         {
           title: "Identification Data",
-          url: "identification-data",
+          url: "/dashboard/identification-data",
         },
         {
           title: "Institute Calendar Data",
-          url: "institue-calendar-data",
+          url: "/dashboard/institue-calendar-data",
         },
         {
           title: "Event Data",
-          url: "event-data",
+          url: "/dashboard/event-data",
         },
       ],
     },
@@ -38,11 +38,11 @@ export const SAMPLE_SIDEBAR = {
       items: [
         {
           title: "User Behaviour",
-          url: "user-behaviour",
+          url: "/dashboard/user-behaviour",
         },
         {
           title: "Appointment Requests",
-          url: "appointment-requests",
+          url: "/dashboard/appointment-requests",
         },
       ],
     },

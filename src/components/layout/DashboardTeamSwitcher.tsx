@@ -7,8 +7,7 @@ import {
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
-    DropdownMenuTrigger,
+    DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
 import {
     SidebarMenu,
@@ -61,7 +60,7 @@ const DashboardTeamSwitcher = ({
                         </DropdownMenuLabel>
                         {teams.map((team, index) => (
                             <DropdownMenuItem
-                                key={team.name}
+                                key={index}
                                 onClick={() => setActiveTeam(team)}
                                 className="gap-2 p-2"
                             >
@@ -69,7 +68,6 @@ const DashboardTeamSwitcher = ({
                                     <team.logo className="size-4 shrink-0" />
                                 </div>
                                 {team.name}
-                                <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
                             </DropdownMenuItem>
                         ))}
                         <DropdownMenuSeparator />

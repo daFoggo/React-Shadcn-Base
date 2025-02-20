@@ -3,7 +3,7 @@ import AuthLayout from "@/layouts/AuthLayout";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import RootLayout from "@/layouts/RootLayout";
 import { lazy } from "react";
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 
 const Landing = lazy(() => import("@/pages/Landing"));
 const Login = lazy(() => import("@/pages/Login"));
@@ -53,6 +53,10 @@ export const routes = [
       </ProtectedRoute>
     ),
     children: [
+      {
+        index: true,
+        element: <Navigate to="/dashboard/identification-data" replace />,
+      },
       {
         path: "identification-data",
         element: <IdentificationData />,
