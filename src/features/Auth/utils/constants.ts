@@ -58,3 +58,14 @@ export const registerFormSchema = z
     message: "Passwords do not match",
     path: ["confirmPassword"],
   });
+
+export const forgotPasswordFormSchema = z.object({
+  email: z
+    .string()
+    .min(1, {
+      message: "Email is required",
+    })
+    .max(50, {
+      message: "Email cannot be longer than 50 characters",
+    }),
+});

@@ -69,7 +69,7 @@ const LoginForm = ({ login }: ILoginFormProps) => {
                   <FormLabel>Password</FormLabel>
                   <Link
                     to="/auth/forgot-password"
-                    className="ml-auto text-sm underline-offset-4 hover:underline"
+                    className="ml-auto text-sm text-muted-foreground underline-offset-4 hover:underline"
                   >
                     Forgot your password?
                   </Link>
@@ -102,9 +102,9 @@ const LoginForm = ({ login }: ILoginFormProps) => {
         </form>
       </Form>
 
-      <div className="text-center text-sm">
+      <div className="text-center text-sm text-muted-foreground">
         Don&apos;t have an account?{" "}
-        <Link to="/auth/register" className="underline underline-offset-4">
+        <Link to="/auth/register" className="underline underline-offset-4 hover:text-primary transition-colors">
           Sign up
         </Link>
       </div>

@@ -3,6 +3,7 @@ export interface IAuthContext {
     login: () => void;
     register: () => void;
     logout: () => void;
+    forgotPassword: () => void;
     user: any | null;
   }
   

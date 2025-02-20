@@ -30,11 +30,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     console.log("Registering");
   }
 
+  const forgotPassword = () => {
+    console.log("Forgot Password");
+  }
+
   const contextValue: IAuthContext = {
     isAuthenticated,
     login,
     register,
     logout,
+    forgotPassword,
     user,
   };
 

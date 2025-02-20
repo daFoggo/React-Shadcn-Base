@@ -129,9 +129,9 @@ const RegisterForm = ({ register }: IRegisterFormProps) => {
         </form>
       </Form>
 
-      <div className="text-center text-sm">
+      <div className="text-center text-sm text-muted-foreground">
         Already have an account?{" "}
-        <Link to="/auth/login" className="underline underline-offset-4">
+        <Link to="/auth/login" className="underline underline-offset-4  hover:text-primary transition-colors">
           Login
         </Link>
       </div>
