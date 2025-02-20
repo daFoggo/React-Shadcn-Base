@@ -1,29 +1,34 @@
 import { IAuthContext } from "@/types/AuthContext";
+import { IUser } from "@/types/User";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext<IAuthContext | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<IUser>({} as IUser);
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    const user = localStorage.getItem("user");
+    if (token && user) {
       setIsAuthenticated(true);
-      //  fetch user data
+      setUser(JSON.parse(user));
     }
   }, []);
 
-  const login = () => {
+  const login = (user: IUser) => {
     localStorage.setItem("token", "token");
+    localStorage.setItem("user", JSON.stringify(user));
+    setUser(user);
     setIsAuthenticated(true);
     console.log("Logging in")
   };
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setIsAuthenticated(false);
-    setUser(null);
+    setUser({} as IUser);
   };
 
   const register = () => {

@@ -1,3 +1,3 @@
 export interface ILoginFormProps {
- login: () => void
+ login: (user: IUser) => void;
 }

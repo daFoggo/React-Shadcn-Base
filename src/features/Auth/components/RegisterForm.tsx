@@ -1,3 +1,4 @@
+import { Icons } from "@/components/common/Icons";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -123,7 +124,7 @@ const RegisterForm = ({ register }: IRegisterFormProps) => {
           </div>
 
           <Button type="button" variant="outline" className="w-full">
-            <img src="/github.svg" alt="GitHub" className="size-4" />
+            <Icons.gitHub className="size-4" />
             Login with GitHub
           </Button>
         </form>

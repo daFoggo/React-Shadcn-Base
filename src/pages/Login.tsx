@@ -1,5 +1,6 @@
-import { GalleryVerticalEnd } from "lucide-react";
 
+import { Icons } from "@/components/common/Icons";
+import { docsConfig } from "@/config/docs";
 import { useAuth } from "@/contexts/AuthContext";
 import LoginForm from "@/features/Auth/components/LoginForm";
 import { Link } from "react-router";
@@ -13,9 +14,9 @@ const Login = () => {
         <div className="flex justify-center gap-2 md:justify-start">
           <Link to="/" className="flex items-center gap-2 font-medium">
             <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
-              <GalleryVerticalEnd className="size-4" />
+              <Icons.logo className="size-4" />
             </div>
-            React Shadcn Base
+            {docsConfig.websiteName}
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-center">

@@ -1,3 +1,4 @@
+import { Icons } from "@/components/common/Icons";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,6 +15,7 @@ import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { ILoginFormProps } from "../types/LoginForm";
 import { loginFormSchema } from "../utils/constants";
+import { DICEBEAR_API } from "../utils/endpoints";
 
 const LoginForm = ({ login }: ILoginFormProps) => {
   const form = useForm<z.infer<typeof loginFormSchema>>({
@@ -27,7 +29,11 @@ const LoginForm = ({ login }: ILoginFormProps) => {
 
   const onSubmit = (values: z.infer<typeof loginFormSchema>) => {
     console.log(values);
-    login();
+    login({
+      email: values.email,
+      username: "Lorelei",
+      image: DICEBEAR_API,
+    });
     navigate("/dashboard");
   };
 
@@ -96,7 +102,7 @@ const LoginForm = ({ login }: ILoginFormProps) => {
           </div>
 
           <Button type="button" variant="outline" className="w-full">
-            <img src="/github.svg" alt="GitHub" className="size-4" />
+            <Icons.gitHub className="size-4" />
             Login with GitHub
           </Button>
         </form>

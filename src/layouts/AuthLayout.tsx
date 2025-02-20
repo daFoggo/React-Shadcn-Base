@@ -1,7 +1,7 @@
 import { BaseContextProvider } from "@/contexts/BaseContext";
 import { Outlet } from "react-router";
 
-export default function AuthLayout() {
+const AuthLayout = () => {
   return (
     <BaseContextProvider>
       <div className="min-h-screen">
@@ -12,3 +12,5 @@ export default function AuthLayout() {
     </BaseContextProvider>
   );
 }
+
+export default AuthLayout;

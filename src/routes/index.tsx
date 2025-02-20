@@ -1,11 +1,11 @@
-import { ProtectedRoute } from "@/components/layout/ProtectedRoute";
+import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AuthLayout from "@/layouts/AuthLayout";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import RootLayout from "@/layouts/RootLayout";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router";
 
-const Home = lazy(() => import("@/pages/Home"));
+const Landing = lazy(() => import("@/pages/Landing"));
 const Dashboard = lazy(() => import("@/pages/Dashboard"));
 const Login = lazy(() => import("@/pages/Login"));
 const Register = lazy(() => import("@/pages/Register"));
@@ -19,7 +19,7 @@ export const routes = [
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Landing />,
       },
     ],
   },

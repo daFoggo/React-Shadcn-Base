@@ -11,11 +11,10 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { z } from "zod";
 import { IForgotFormProps } from "../types/ForgotPasswordForm";
 import { forgotPasswordFormSchema } from "../utils/constants";
-
 
 const ForgotPassword = (
   { forgotPassword }: IForgotFormProps
@@ -26,7 +25,6 @@ const ForgotPassword = (
       email: "",
     }
   });
-  const navigate = useNavigate();
 
   const onSubmit = (values: z.infer<typeof forgotPasswordFormSchema>) => {
     console.log(values);
