@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { IRegisterFormProps } from "../types/RegisterForm";
 import { registerFormSchema } from "../utils/constants";
@@ -25,10 +25,12 @@ const RegisterForm = ({ register }: IRegisterFormProps) => {
       password: "",
     }
   });
+  const navigate = useNavigate();
 
   const onSubmit = (values: z.infer<typeof registerFormSchema>) => {
     console.log(values);
     register();
+    navigate("/auth/login")
   };
 
   return (

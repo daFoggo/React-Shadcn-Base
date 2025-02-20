@@ -6,7 +6,6 @@ const AuthContext = createContext<IAuthContext | null>(null);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState<any>(null);
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -16,6 +15,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const login = () => {
+    localStorage.setItem("token", "token");
+    setIsAuthenticated(true);
     console.log("Logging in")
   };
 
@@ -26,7 +27,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const register = () => {
-    console.log("Registering")
+    console.log("Registering");
   }
 
   const contextValue: IAuthContext = {

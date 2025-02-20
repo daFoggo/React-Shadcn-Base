@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { ILoginFormProps } from "../types/LoginForm";
 import { loginFormSchema } from "../utils/constants";
@@ -23,10 +23,12 @@ const LoginForm = ({ login }: ILoginFormProps) => {
       password: "",
     }
   });
+  const navigate = useNavigate();
 
   const onSubmit = (values: z.infer<typeof loginFormSchema>) => {
     console.log(values);
     login();
+    navigate("/dashboard");
   };
 
   return (
