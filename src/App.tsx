@@ -1,11 +1,19 @@
+import { Suspense } from "react";
+import { RouterProvider } from "react-router";
+import { ThemeProvider } from "./components/common/ThemeProvider";
+import { AuthProvider } from "./contexts/AuthContext";
 import "./App.css";
-import { Button } from "./components/ui/button";
+import { router } from "./routes";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Button>Hello world!</Button>
-    </>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <AuthProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <RouterProvider router={router} />
+        </Suspense>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

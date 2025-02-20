@@ -7,6 +7,8 @@ const AuthContext = createContext<IAuthContext | null>(null);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState<IUser>({} as IUser);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
@@ -14,6 +16,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setIsAuthenticated(true);
       setUser(JSON.parse(user));
     }
+    setLoading(false);
   }, []);
 
   const login = (user: IUser) => {
@@ -41,6 +44,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const contextValue: IAuthContext = {
     isAuthenticated,
+    loading,
     login,
     register,
     logout,

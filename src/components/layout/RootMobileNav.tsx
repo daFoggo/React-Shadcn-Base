@@ -20,7 +20,7 @@ const RootMobileNav = () => {
                 </Button>
             </DrawerTrigger>
             <DrawerContent className="max-h-[60vh] p-0">
-                <DrawerTitle className="mx-6 my-2">
+                <DrawerTitle className="mx-6 my-2 font-bold">
                     {docsConfig.websiteName}</DrawerTitle>
                 <DrawerDescription></DrawerDescription>
                 <div className="overflow-auto p-6">

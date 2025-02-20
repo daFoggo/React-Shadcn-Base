@@ -6,10 +6,14 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router";
 
 const Landing = lazy(() => import("@/pages/Landing"));
-const Dashboard = lazy(() => import("@/pages/Dashboard"));
 const Login = lazy(() => import("@/pages/Login"));
 const Register = lazy(() => import("@/pages/Register"));
 const ForgotPassword = lazy(() => import("@/pages/ForgotPassword"))
+const IdentificationData = lazy(() => import("@/pages/IdentificationData"));
+const InstitueCalendarData = lazy(() => import("@/pages/InstitueCalendarData"));
+const EventData = lazy(() => import("@/pages/EventData"));
+const UserBehaviour = lazy(() => import("@/pages/UserBehaviour"));
+const AppointmentsRequests = lazy(() => import("@/pages/AppointmentsRequests"));
 
 export const routes = [
   {
@@ -50,9 +54,25 @@ export const routes = [
     ),
     children: [
       {
-        index: true,
-        element: <Dashboard />,
+        path: "identification-data",
+        element: <IdentificationData />,
       },
+      {
+        path: "institue-calendar-data",
+        element: <InstitueCalendarData />,
+      },
+      {
+        path: "event-data",
+        element: <EventData />,
+      },
+      {
+        path: "user-behaviour",
+        element: <UserBehaviour />,
+      },
+      {
+        path: "appointment-requests",
+        element: <AppointmentsRequests />,
+      }
     ],
   },
 ];
