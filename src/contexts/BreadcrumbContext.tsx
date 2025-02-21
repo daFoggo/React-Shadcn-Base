@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const BreadcrumbContext = createContext<IBreadcrumbContext | undefined>(undefined);
 
-export const BreadcrumbProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const BreadcrumbProvider = ({ children }: { children: React.ReactNode }) => {
     const [breadcrumbs, setBreadcrumbs] = useState<IBreadcrumbItem[]>([]);
 
     const updateBreadcrumb = (path: string, newTitle: string) => {

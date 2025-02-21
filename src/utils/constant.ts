@@ -1,8 +1,8 @@
 import { Icons } from "@/components/common/Icons";
 import { docsConfig } from "@/config/docs";
-import { ChartArea, Database, Frame, Map, PieChart } from "lucide-react";
+import { routeConfig } from "@/routes/config";
 
-export const SAMPLE_SIDEBAR = {
+export const SIDEBAR_ROUTING = {
   teams: [
     {
       name: docsConfig.websiteName,
@@ -12,56 +12,28 @@ export const SAMPLE_SIDEBAR = {
   ],
   navMain: [
     {
-      title: "Data Management",
-      url: "#data-magement",
-      icon: Database,
+      title: routeConfig.dashboard.children.dataManagement.title,
+      url: "#data-management",
+      icon: routeConfig.dashboard.children.dataManagement.icon,
       isActive: true,
-      items: [
-        {
-          title: "Identification Data",
-          url: "/dashboard/identification-data",
-        },
-        {
-          title: "Institute Calendar Data",
-          url: "/dashboard/institue-calendar-data",
-        },
-        {
-          title: "Event Data",
-          url: "/dashboard/event-data",
-        },
-      ],
+      items: Object.values(
+        routeConfig.dashboard.children.dataManagement.children ?? {}
+      ).map((item) => ({
+        title: item.title,
+        url: item.path,
+      })),
     },
     {
-      title: "Data Analysis",
+      title: routeConfig.dashboard.children.dataAnalysis.title,
       url: "#data-analysis",
-      icon: ChartArea,
-      items: [
-        {
-          title: "User Behaviour",
-          url: "/dashboard/user-behaviour",
-        },
-        {
-          title: "Appointment Requests",
-          url: "/dashboard/appointment-requests",
-        },
-      ],
+      icon: routeConfig.dashboard.children.dataAnalysis.icon,
+      items: Object.values(
+        routeConfig.dashboard.children.dataAnalysis.children ?? {}
+      ).map((item) => ({
+        title: item.title,
+        url: item.path,
+      })),
     },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
+  projects: routeConfig.projects,
 };

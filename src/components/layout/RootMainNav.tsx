@@ -1,9 +1,11 @@
 import { docsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
+import { INavItem } from "@/types/Navigation"
 import { Link, useLocation } from "react-router"
 import { Icons } from "../common/Icons"
 
-const RootMainNav = () => {
+const RootMainNav = ({ navItems }: { navItems: INavItem[] }
+) => {
     const { pathname } = useLocation()
     return (
         <div className="mr-4 hidden md:flex">
@@ -15,7 +17,7 @@ const RootMainNav = () => {
             </Link>
             <nav className="flex items-center gap-4 text-sm xl:gap-6">
                 {
-                    docsConfig.mainNav.map((item, index) => (
+                    navItems.map((item: INavItem, index: number) => (
                         <Link
                             to={item.href ?? '/dashboard'}
                             className={cn(
@@ -26,7 +28,6 @@ const RootMainNav = () => {
                         >
                             {item.title}
                         </Link>
-
                     ))
                 }
             </nav>

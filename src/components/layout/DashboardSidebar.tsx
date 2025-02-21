@@ -8,7 +8,7 @@ import {
     SidebarRail,
 } from "@/components/ui/sidebar"
 import { useAuth } from "@/contexts/AuthContext"
-import { SAMPLE_SIDEBAR } from "@/utils/constant"
+import { SIDEBAR_ROUTING } from "@/utils/constant"
 import ThemeSwitcher from "../common/ThemeSwitcher"
 import UserMenu from "../common/UserMenu"
 import DashboardNavMain from "./DashboardNavMain"
@@ -20,11 +20,11 @@ const DashboardSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =>
     return (
         <Sidebar collapsible="icon" {...props} className="no-scrollbar">
             <SidebarHeader>
-                <DashboardTeamSwitcher teams={SAMPLE_SIDEBAR.teams} />
+                <DashboardTeamSwitcher teams={SIDEBAR_ROUTING.teams} />
             </SidebarHeader>
             <SidebarContent>
-                <DashboardNavMain items={SAMPLE_SIDEBAR.navMain} />
-                <DashboardNavProjects projects={SAMPLE_SIDEBAR.projects} />
+                <DashboardNavMain items={SIDEBAR_ROUTING.navMain} />
+                <DashboardNavProjects projects={SIDEBAR_ROUTING.projects} />
             </SidebarContent>
             <SidebarFooter className="flex flex-row justify-between items-center">
                 <div>

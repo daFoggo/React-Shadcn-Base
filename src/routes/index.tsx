@@ -2,51 +2,48 @@ import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AuthLayout from "@/layouts/AuthLayout";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import RootLayout from "@/layouts/RootLayout";
-import { lazy } from "react";
+import { IBaseRoute } from "@/types/RouteConfig";
 import { createBrowserRouter, Navigate } from "react-router";
+import { routeConfig } from "./config";
 
-const Landing = lazy(() => import("@/pages/Landing"));
-const Login = lazy(() => import("@/pages/Login"));
-const Register = lazy(() => import("@/pages/Register"));
-const ForgotPassword = lazy(() => import("@/pages/ForgotPassword"))
-const IdentificationData = lazy(() => import("@/pages/IdentificationData"));
-const InstitueCalendarData = lazy(() => import("@/pages/InstitueCalendarData"));
-const EventData = lazy(() => import("@/pages/EventData"));
-const UserBehaviour = lazy(() => import("@/pages/UserBehaviour"));
-const AppointmentsRequests = lazy(() => import("@/pages/AppointmentsRequests"));
+const createRoutes = (config: IBaseRoute) => {
+  const routes = [];
 
-export const routes = [
+  if (config.path && config.element) {
+    routes.push({
+      path: config.path,
+      element: <config.element />,
+    });
+  }
+
+  if (config.children) {
+    Object.values(config.children).forEach((child) => {
+      routes.push(...createRoutes(child as IBaseRoute));
+    });
+  }
+
+  return routes;
+};
+
+const rootRoutes = [
   {
-    path: "/",
+    path: routeConfig.root.path,
     element: <RootLayout />,
     errorElement: <div>Not Found</div>,
     children: [
       {
         index: true,
-        element: <Landing />,
+        element: <routeConfig.root.element />,
       },
     ],
   },
   {
-    path: "/auth",
+    path: routeConfig.auth.path,
     element: <AuthLayout />,
-    children: [
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <Register />,
-      },
-      {
-        path: "forgot-password",
-        element: <ForgotPassword />,
-      }
-    ],
+    children: createRoutes(routeConfig.auth),
   },
   {
-    path: "/dashboard",
+    path: routeConfig.dashboard.path,
     element: (
       <ProtectedRoute>
         <DashboardLayout />
@@ -55,30 +52,11 @@ export const routes = [
     children: [
       {
         index: true,
-        element: <Navigate to="/dashboard/identification-data" replace />,
+        element: <Navigate to={Object.values(routeConfig.dashboard.children?.dataManagement?.children || {})[0]?.path || '/'} replace />,
       },
-      {
-        path: "identification-data",
-        element: <IdentificationData />,
-      },
-      {
-        path: "institue-calendar-data",
-        element: <InstitueCalendarData />,
-      },
-      {
-        path: "event-data",
-        element: <EventData />,
-      },
-      {
-        path: "user-behaviour",
-        element: <UserBehaviour />,
-      },
-      {
-        path: "appointment-requests",
-        element: <AppointmentsRequests />,
-      }
+      ...createRoutes(routeConfig.dashboard),
     ],
   },
 ];
 
-export const router = createBrowserRouter(routes);
+export const router = createBrowserRouter(rootRoutes);

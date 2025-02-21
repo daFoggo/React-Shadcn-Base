@@ -4,6 +4,4 @@ export interface IDocsConfig {
   authorName: string;
   authorUrl: string;
   projectUrl: string;
-  mainNav: IMainNavItem[];
-  sidebarNav: ISidebarNavItem[];
 }

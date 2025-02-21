@@ -15,6 +15,7 @@ import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { IRegisterFormProps } from "../types/RegisterForm";
 import { registerFormSchema } from "../utils/constants";
+import { routeConfig } from "@/routes/config";
 
 const RegisterForm = ({ register }: IRegisterFormProps) => {
   const form = useForm<z.infer<typeof registerFormSchema>>({
@@ -31,7 +32,7 @@ const RegisterForm = ({ register }: IRegisterFormProps) => {
   const onSubmit = (values: z.infer<typeof registerFormSchema>) => {
     console.log(values);
     register();
-    navigate("/auth/login")
+    navigate(routeConfig.auth.children.login.path)
   };
 
   return (

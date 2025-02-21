@@ -16,6 +16,7 @@ import { z } from "zod";
 import { ILoginFormProps } from "../types/LoginForm";
 import { loginFormSchema } from "../utils/constants";
 import { DICEBEAR_API } from "../utils/endpoints";
+import { routeConfig } from "@/routes/config";
 
 const LoginForm = ({ login }: ILoginFormProps) => {
   const form = useForm<z.infer<typeof loginFormSchema>>({
@@ -34,7 +35,7 @@ const LoginForm = ({ login }: ILoginFormProps) => {
       username: "Lorelei",
       image: DICEBEAR_API,
     });
-    navigate("/dashboard");
+    navigate(routeConfig.dashboard.path);
   };
 
   return (

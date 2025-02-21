@@ -1,4 +1,6 @@
 import { useAuth } from "@/contexts/AuthContext"
+import { routeConfig } from "@/routes/config"
+import { INavItem } from "@/types/Navigation"
 import { LogIn } from "lucide-react"
 import { useNavigate } from "react-router"
 import ThemeSwitcher from "../common/ThemeSwitcher"
@@ -11,21 +13,27 @@ import RootMobileNav from "./RootMobileNav"
 const RootHeader = () => {
     const { isAuthenticated, user, } = useAuth();
     const navigate = useNavigate();
+    const navItems: INavItem[] = [
+        {
+            title: routeConfig.dashboard.title,
+            href: routeConfig.dashboard.path,
+        }
+    ];
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container-wrapper">
                 <div className="container flex h-14 items-center">
-                    <RootMainNav />
-                    <RootMobileNav />
+                    <RootMainNav navItems={navItems} />
+                    <RootMobileNav navItems={navItems} />
                     <div className="flex flex-1 items-center justify-between gap-2 md:justify-end">
                         <div className="w-full flex-1 md:w-auto md:flex-none">
-                            <RootCommandMenu />
+                            <RootCommandMenu navItems={navItems} />
                         </div>
                         <nav className="flex items-center gap-2">
                             <ThemeSwitcher />
                             {
                                 !isAuthenticated ? (
-                                    <Button onClick={() => navigate("/auth/login")}>
+                                    <Button onClick={() => navigate(routeConfig.auth.children.login.path)}>
                                         Login
                                         <LogIn className="size-4" />
                                     </Button>

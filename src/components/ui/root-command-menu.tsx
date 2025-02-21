@@ -1,5 +1,5 @@
-import { docsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
+import { INavItem } from "@/types/Navigation"
 import { type DialogProps } from "@radix-ui/react-dialog"
 import { Laptop, Link, Moon, Sun } from "lucide-react"
 import { useCallback, useEffect, useState } from "react"
@@ -8,7 +8,9 @@ import { useTheme } from "../common/ThemeProvider"
 import { Button } from "./button"
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "./command"
 
-const RootCommandMenu = ({ ...props }: DialogProps) => {
+const RootCommandMenu = ({ navItems, ...props }: {
+    navItems: INavItem[];
+} & DialogProps) => {
     const [open, setOpen] = useState(false)
     const { setTheme } = useTheme()
     const navigate = useNavigate()
@@ -60,7 +62,7 @@ const RootCommandMenu = ({ ...props }: DialogProps) => {
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Links">
-                        {docsConfig.mainNav
+                        {navItems
                             .filter((navitem) => !navitem.external)
                             .map((navItem) => (
                                 <CommandItem

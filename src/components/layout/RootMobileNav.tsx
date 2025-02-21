@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Drawer, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
 import { docsConfig } from "@/config/docs"
+import { INavItem } from "@/types/Navigation"
 import { Menu } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router"
 
-const RootMobileNav = () => {
+const RootMobileNav = ({ navItems }: { navItems: INavItem[] }) => {
     const [open, setOpen] = useState(false)
 
     return (
@@ -26,7 +27,7 @@ const RootMobileNav = () => {
                 <div className="overflow-auto p-6">
                     <div className="flex flex-col space-y-3">
                         {
-                            docsConfig.mainNav.map((item, index) => (
+                            navItems.map((item, index) => (
                                 <MobileLink href={item.href || "/"} onOpenChange={setOpen} key={index}>
                                     {item.title}
                                 </MobileLink>
