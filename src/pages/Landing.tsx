@@ -1,6 +1,6 @@
-import Features from "@/features/Auth/components/Features"
-import Hero from "@/features/Auth/components/Hero"
-import LogoGrid from "@/features/Auth/components/LogoGrid"
+import Features from "@/components/layout/Features"
+import Hero from "@/components/layout/Hero"
+import LogoGrid from "@/components/layout/LogoGrid"
 
 const Landing = () => {
   return (

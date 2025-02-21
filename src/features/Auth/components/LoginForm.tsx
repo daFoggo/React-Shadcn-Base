@@ -15,7 +15,7 @@ import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { ILoginFormProps } from "../types/LoginForm";
 import { loginFormSchema } from "../utils/constants";
-import { DICEBEAR_API } from "../utils/endpoints";
+import { DICEBEAR_API } from "../../../utils/endpoints";
 import { routeConfig } from "@/routes/config";
 
 const LoginForm = ({ login }: ILoginFormProps) => {

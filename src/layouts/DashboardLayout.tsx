@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { BaseContextProvider } from '@/contexts/BaseContext';
 import { BreadcrumbProvider } from '@/contexts/BreadcrumbContext';
-import { useBreadcrumbUpdate } from '@/features/BaseFeature/hooks/useBreadcrumbUpdate';
+import { useBreadcrumbUpdate } from '@/hooks/useBreadcrumbUpdate';
 import { Outlet } from 'react-router';
 
 const DashboardContent = () => {
