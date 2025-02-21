@@ -29,7 +29,7 @@ const DashboardNavProjects = ({
     projects: {
         name: string
         url: string
-        icon: LucideIcon
+        icon?: LucideIcon
     }[]
 }) => {
     const { isMobile } = useSidebar()
@@ -42,7 +42,7 @@ const DashboardNavProjects = ({
                     <SidebarMenuItem key={item.name}>
                         <SidebarMenuButton asChild>
                             <a href={item.url}>
-                                <item.icon />
+                                {item.icon ? <item.icon /> : <Folder />}
                                 <span>{item.name}</span>
                             </a>
                         </SidebarMenuButton>

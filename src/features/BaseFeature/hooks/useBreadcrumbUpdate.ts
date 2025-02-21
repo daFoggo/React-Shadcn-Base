@@ -1,19 +1,21 @@
 import { useBreadcrumb } from "@/contexts/BreadcrumbContext";
 import { routeConfig } from "@/routes/config";
 import { IBreadcrumbItem } from "@/types/BreadcrumbItem";
-import { IRouteConfig } from "@/types/RouteConfig";
+import { IBaseRoute } from "@/types/RouteConfig";
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 
 const findRouteConfig = (
   path: string,
-  config: IRouteConfig = routeConfig.dashboard
-): IRouteConfig | null => {
-  if (config.path === path) return config;
+  config: IBaseRoute = routeConfig.dashboard
+): IBaseRoute | null => {
+  if ('path' in config && config.path === path) return config as IBaseRoute;
   if (config.children) {
     for (const child of Object.values(config.children)) {
-      const found = findRouteConfig(path, child);
-      if (found) return found;
+      if ('path' in child) {
+        const found = findRouteConfig(path, child as IBaseRoute);
+        if (found) return found;
+      }
     }
   }
   return null;
@@ -45,7 +47,6 @@ export const useBreadcrumbUpdate = (): void => {
       []
     );
 
-    // Always add Dashboard as the first breadcrumb
     breadcrumbs.unshift({
       title: routeConfig.dashboard.title || "Dashboard",
       path: routeConfig.dashboard.path || "/dashboard",
