@@ -1,5 +1,4 @@
 # React Shadcn Base
-
 ![Landing](/demo_image/landing.png)
 ![Auth](/demo_image/auth.png)
 ![Dashboard](/demo_image/dashboard.png)
@@ -8,6 +7,11 @@
 - A base project for Vite React application, building with Shadcn/ui component library.
 - Come with essential features like Auth, Dashboard, Landing page, Charts, CRUD Table,...
 - Integrate with other popular libraries like SWR for fetching ( You can use axios if you want), React Router v7 for routing management, Framer motion for animation.
+- Shadcn/ui: https://ui.shadcn.com/
+- Vite: https://vite.dev/
+- React: https://react.dev/
+# Project state
+- Currently using React 18 and Tailwind v3. Waiting for Shadcn's tailwind v4 build release. You can try update Tailwind v4 through canary version on this document: https://ui.shadcn.com/docs/tailwind-v4
 # 1. Core technologies
 - React 18 Typescript
 - Vite
