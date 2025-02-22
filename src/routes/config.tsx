@@ -8,6 +8,8 @@ import { lazy } from "react";
 
 const Landing = lazy(() => import("@/pages/Landing"));
 const Login = lazy(() => import("@/pages/Login"));
+const Register = lazy(() => import("@/pages/Register"));
+const ForgotPassword = lazy(() => import("@/pages/ForgotPassword"));
 const IdentificationData = lazy(() => import("@/pages/IdentificationData"));
 const InstitueCalendarData = lazy(() => import("@/pages/InstitueCalendarData"));
 const UserBehaviourStatistics = lazy(() => import("@/pages/UserBehaviourStatistics"));
@@ -24,6 +26,16 @@ export const routeConfig: IRouteConfig = {
         path: "/auth/login",
         element: Login,
         title: "Login",
+      },
+      register: {
+        path: "/auth/register",
+        element: Register,
+        title: "Register",
+      },
+      forgotPassword: {
+        path: "/auth/forgot-password",
+        element: ForgotPassword,
+        title: "Forgot Password",
       },
     },
   },

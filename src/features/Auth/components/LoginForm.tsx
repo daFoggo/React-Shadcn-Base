@@ -11,10 +11,11 @@ import { Input } from "@/components/ui/input";
 import { routeConfig } from "@/routes/config";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { ILoginFormProps } from "../types/LoginForm";
 import { loginFormSchema } from "../utils/constants";
+import { Icons } from "@/components/common/Icons";
 
 const LoginForm = ({ login, loadingAPI }: ILoginFormProps) => {
   const form = useForm<z.infer<typeof loginFormSchema>>({
@@ -68,6 +69,12 @@ const LoginForm = ({ login, loadingAPI }: ILoginFormProps) => {
               <FormItem>
                 <div className="flex items-center">
                   <FormLabel>Password</FormLabel>
+                  <Link
+                    to={routeConfig.auth.children.forgotPassword.path}
+                    className="ml-auto text-muted-foreground text-sm hover:underline underline-offset-4"
+                  >
+                    Forgot your password?
+                  </Link>
                 </div>
                 <FormControl>
                   <Input
@@ -83,8 +90,26 @@ const LoginForm = ({ login, loadingAPI }: ILoginFormProps) => {
           <Button type="submit" className="w-full" disabled={loadingAPI}>
             Login
           </Button>
+
+          <div className="after:top-1/2 after:z-0 after:absolute relative after:inset-0 after:flex after:items-center after:border-t after:border-border text-sm text-center">
+            <span className="z-10 relative bg-background px-2 text-muted-foreground">
+              Or continue with
+            </span>
+          </div>
+
+          <Button type="button" variant="outline" className="w-full">
+            <Icons.gitHub className="size-4" />
+            Login with GitHub
+          </Button>
         </form>
       </Form>
+
+      <div className="text-muted-foreground text-sm text-center">
+        Don&apos;t have an account?{" "}
+        <Link to="/auth/register" className="hover:text-primary underline underline-offset-4 transition-colors">
+          Register
+        </Link>
+      </div>
     </div>
   );
 };

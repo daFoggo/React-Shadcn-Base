@@ -64,6 +64,71 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setLoadingAPI(false);
     }
   };
+
+  const register = async (email: string, username: string, password: string) => {
+    setLoadingAPI(true);
+    try {
+      console.log(email, username, password); // only for sample purpose ( remove it in production )
+      const data = {
+        success: true,
+        payload: {
+          accessToken: "token",
+          user: {
+            name: username,
+            role: "Admin",
+          },
+        }
+      }
+
+      if (data.success) {
+        toast({
+          title: "Register Successfully",
+        });
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Register Failed",
+        variant: "destructive",
+      });
+      return false;
+    } finally {
+      setLoadingAPI(false);
+    }
+  }
+
+  const forgotPassword = async (email: string) => {
+    setLoadingAPI(true);
+    try {
+      console.log(email); // only for sample purpose ( remove it in production )
+      const data = {
+        success: true,
+        payload: {
+          message: "Email sent successfully",
+        }
+      }
+
+      if (data.success) {
+        toast({
+          title: data.payload.message,
+        });
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Forgot Password Failed",
+        variant: "destructive",
+      });
+      return false;
+    } finally {
+      setLoadingAPI(false);
+    }
+  }
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -76,6 +141,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     loading,
     loadingAPI,
     login,
+    register,
+    forgotPassword,
     logout,
     user,
   };
