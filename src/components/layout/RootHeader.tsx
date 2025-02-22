@@ -20,13 +20,13 @@ const RootHeader = () => {
         }
     ];
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="top-0 z-50 sticky bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b w-full">
             <div className="container-wrapper">
-                <div className="container flex h-14 items-center">
+                <div className="flex items-center h-14 container">
                     <RootMainNav navItems={navItems} />
                     <RootMobileNav navItems={navItems} />
-                    <div className="flex flex-1 items-center justify-between gap-2 md:justify-end">
-                        <div className="w-full flex-1 md:w-auto md:flex-none">
+                    <div className="flex flex-1 justify-between md:justify-end items-center gap-2">
+                        <div className="flex-1 md:flex-none w-full md:w-auto">
                             <RootCommandMenu navItems={navItems} />
                         </div>
                         <nav className="flex items-center gap-2">

@@ -4,7 +4,7 @@ import LogoGrid from "@/components/layout/LogoGrid"
 
 const Landing = () => {
   return (
-    <div className="px-6 sm:p-0">
+    <div className="sm:p-0 px-6">
       <Hero />
       <LogoGrid />
       <Features />

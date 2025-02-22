@@ -4,10 +4,10 @@ import { Link } from "react-router"
 
 const RootFooter = () => {
     return (
-        <footer className="border-t py-6 md:py-0">
+        <footer className="py-6 md:py-0 border-t">
             <div className="container-wrapper">
-                <div className="container py-4">
-                    <div className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
+                <div className="py-4 container">
+                    <div className="text-muted-foreground text-sm md:text-left text-center text-balance leading-loose">
                         Built by{" "}
                         <Link
                             to={docsConfig.authorUrl}

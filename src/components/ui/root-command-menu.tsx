@@ -46,7 +46,7 @@ const RootCommandMenu = ({ navItems, ...props }: {
             <Button
                 variant="outline"
                 className={cn(
-                    "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
+                    "relative  w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
                 )}
                 onClick={() => setOpen(true)}
                 {...props}

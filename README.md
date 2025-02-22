@@ -6,7 +6,7 @@
 
 - A base project for Vite React application, building with Shadcn/ui component library.
 - Come with essential features like Auth, Dashboard, Landing page, Charts, CRUD Table,...
-- Integrate with other popular libraries like SWR for fetching ( You can use axios if you want), React Router v7 for routing management, Framer motion for animation.
+- Integrate with other popular libraries like Axios, SWR for fetching ( You can use axios if you want), React Router v7 for routing management, Framer motion for animation.
 - Shadcn/ui: https://ui.shadcn.com/
 - Vite: https://vite.dev/
 - React: https://react.dev/
@@ -17,6 +17,7 @@
 - Vite
 - Shadcn/ui
 - TailwindCSS
+- Axios
 - SWR
 - React Router v7
 # 2. Project Architecture

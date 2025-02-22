@@ -14,17 +14,17 @@ const RootMobileNav = ({ navItems }: { navItems: INavItem[] }) => {
             <DrawerTrigger asChild>
                 <Button
                     variant="ghost"
-                    className="-ml-2 mr-2 h-8 w-8 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+                    className="md:hidden hover:bg-transparent focus-visible:bg-transparent mr-2 -ml-2 px-0 focus-visible:ring-0 focus-visible:ring-offset-0 size-8 text-base"
                 >
-                    <Menu className="h-6 w-6" />
+                    <Menu className="w-6 h-6" />
                     <span className="sr-only">Toggle Menu</span>
                 </Button>
             </DrawerTrigger>
-            <DrawerContent className="max-h-[60vh] p-0">
+            <DrawerContent className="p-0 max-h-[60vh]">
                 <DrawerTitle className="mx-6 my-2 font-bold">
                     {docsConfig.websiteName}</DrawerTitle>
                 <DrawerDescription></DrawerDescription>
-                <div className="overflow-auto p-6">
+                <div className="p-6 overflow-auto">
                     <div className="flex flex-col space-y-3">
                         {
                             navItems.map((item, index) => (

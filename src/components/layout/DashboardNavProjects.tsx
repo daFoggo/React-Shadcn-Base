@@ -54,13 +54,13 @@ const DashboardNavProjects = ({
                                 </SidebarMenuAction>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent
-                                className="w-48 rounded-lg"
+                                className="rounded-lg w-48"
                                 side={isMobile ? "bottom" : "right"}
                                 align={isMobile ? "end" : "start"}
                             >
                                 <DropdownMenuItem>
                                     <Folder className="text-muted-foreground" />
-                                    <span>View Project</span>
+                                    <span>Open Project</span>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
                                     <Forward className="text-muted-foreground" />

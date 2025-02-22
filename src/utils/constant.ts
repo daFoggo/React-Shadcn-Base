@@ -31,6 +31,7 @@ export const SIDEBAR_ROUTING = {
         routeConfig.dashboard.children?.dataAnalysis.title || "Data Analysis",
       url: "#data-analysis",
       icon: routeConfig.dashboard.children?.dataAnalysis.icon,
+      isActive: true,
       items: Object.values(
         routeConfig.dashboard.children?.dataAnalysis.children || {}
       ).map((item) => ({

@@ -10,11 +10,11 @@ const Feature = ({ title, description, imageOnRight = false, showButton = false 
     const imageOrder = imageOnRight ? "md:order-2" : ""
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="items-center gap-8 grid grid-cols-1 md:grid-cols-2">
             <div className={`w-full aspect-[4/3] bg-muted rounded-lg ${imageOrder}`} />
             <div className={`${contentOrder} ${!imageOnRight ? "md:pl-8" : ""}`}>
-                <h2 className="text-3xl font-bold mb-4">{title}</h2>
-                <p className="text-muted-foreground mb-4">{description}</p>
+                <h2 className="mb-4 font-bold text-3xl">{title}</h2>
+                <p className="mb-4 text-muted-foreground">{description}</p>
                 {showButton && <Button variant="default">Read More</Button>}
             </div>
         </div>
@@ -23,7 +23,7 @@ const Feature = ({ title, description, imageOnRight = false, showButton = false 
 
 const Features = () => {
     return (
-        <section className="w-full max-w-5xl mx-auto pb-20 space-y-32">
+        <section className="space-y-32 mx-auto pb-20 w-full max-w-5xl">
             <Feature
                 title="Easy setup"
                 description="Get started with a few simple commands."
@@ -31,7 +31,7 @@ const Features = () => {
             />
             <Feature
                 title="Everything is here"
-                description="Intergrate with essential tools and libraries like React Router, SWR and more."
+                description="Intergrate with essential tools and libraries like React Router, Axios, SWR and more."
             />
         </section>
     )

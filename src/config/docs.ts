@@ -1,8 +1,8 @@
 import { IDocsConfig } from "@/types/DocsConfig";
 
 export const docsConfig: IDocsConfig = {
-  websiteName: "React Shadcn Base",
-  authorName: "Foggo",
-  authorUrl: "https://github.com/daFoggo",
-  projectUrl: "https://github.com/daFoggo/React-Shadcn-Base",
+  websiteName: "Kiosk Data Management",
+  authorName: "RIPT-CNS",
+  authorUrl: "https://github.com/RIPT-CNS",
+  projectUrl: "https://github.com/RIPT-CNS/Kiosk-Data-Management",
 };

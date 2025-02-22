@@ -2,7 +2,7 @@ import { Loader2 } from "lucide-react"
 
 const PageLoader = () => {
     return (
-        <div className="w-full h-screen flex flex-col gap-4 items-center justify-center">
+        <div className="flex flex-col justify-center items-center gap-4 w-full h-screen">
             <Loader2 className="size-8 animate-spin" />
             <p className="font-semibold">Loading...</p>
         </div>

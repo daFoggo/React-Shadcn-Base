@@ -8,14 +8,14 @@ const RootMainNav = ({ navItems }: { navItems: INavItem[] }
 ) => {
     const { pathname } = useLocation()
     return (
-        <div className="mr-4 hidden md:flex">
-            <Link to="/" className="mr-4 flex items-center gap-2 lg:mr-6">
+        <div className="hidden md:flex mr-4">
+            <Link to="/" className="flex items-center gap-2 mr-4 lg:mr-6">
                 <Icons.logo className="size-4" />
-                <span className="hidden font-bold lg:inline-block">
+                <span className="hidden lg:inline-block font-bold">
                     {docsConfig.websiteName}
                 </span>
             </Link>
-            <nav className="flex items-center gap-4 text-sm xl:gap-6">
+            <nav className="flex items-center gap-4 xl:gap-6 text-sm">
                 {
                     navItems.map((item: INavItem, index: number) => (
                         <Link

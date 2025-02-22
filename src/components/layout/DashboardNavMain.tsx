@@ -1,5 +1,5 @@
 import { ChevronRight, type LucideIcon } from "lucide-react"
-
+import { useLocation } from "react-router"
 import {
     Collapsible,
     CollapsibleContent,
@@ -30,6 +30,7 @@ const DashboardNavMain = ({
         }[]
     }[]
 }) => {
+    const location = useLocation()
     return (
         <SidebarGroup>
             <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -46,7 +47,7 @@ const DashboardNavMain = ({
                                 <SidebarMenuButton tooltip={item.title}>
                                     {item.icon && <item.icon />}
                                     <span>{item.title}</span>
-                                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                    <ChevronRight className="ml-auto group-data-[state=open]/collapsible:rotate-90 transition-transform duration-200" />
                                 </SidebarMenuButton>
                             </CollapsibleTrigger>
                             <CollapsibleContent>
@@ -54,8 +55,9 @@ const DashboardNavMain = ({
                                     {item.items?.map((subItem) => (
                                         <SidebarMenuSubItem key={subItem.title}>
                                             <SidebarMenuSubButton asChild>
+    
                                                 <a href={subItem.url}>
-                                                    <span>{subItem.title}</span>
+                                                    <span className={`${location.pathname ===  subItem.url ? "text-primary font-semibold" : ""}`}>{subItem.title}</span>
                                                 </a>
                                             </SidebarMenuSubButton>
                                         </SidebarMenuSubItem>

@@ -1,13 +1,13 @@
 import React from "react";
 import { IUser } from "./User";
+import { ILoginResponse } from "@/services/auth/type";
 
 export interface IAuthContext {
     isAuthenticated: boolean;
     loading: boolean;
-    login: (user: IUser) => void;
-    register: () => void;
+    loadingAPI: boolean;
+    login: (username: string, password: string) => Promise<boolean>;
     logout: () => void;
-    forgotPassword: () => void;
     user: any | null;
   }
   
