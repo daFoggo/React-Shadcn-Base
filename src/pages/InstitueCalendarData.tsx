@@ -20,6 +20,7 @@ const InstitueCalendarData = () => {
         data={calendarData}
         canEdit={false}
         loading={loadingAPI}
+        columnToSearch="name"
       />
     </Card>
   )

@@ -17,7 +17,7 @@ const UserBehaviourStatistics = () => {
       <div className="gap-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
         <Blocks />
       </div>
-      <DataTable columns={columns} data={roleStatisticData} canEdit={false} loading={loadingAPI} />
+      <DataTable columns={columns} data={roleStatisticData} canEdit={false} loading={loadingAPI} columnToSearch="role"/>
     </Card>
   )
 }

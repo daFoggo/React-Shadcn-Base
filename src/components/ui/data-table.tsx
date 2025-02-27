@@ -26,9 +26,10 @@ interface DataTableProps<TData, TValue> {
   data: TData[]
   canEdit?: boolean
   loading?: boolean
+  columnToSearch?: string
 }
 
-const DataTable = <TData, TValue>({ columns, data, canEdit = true, loading }: DataTableProps<TData, TValue>) => {
+const DataTable = <TData, TValue>({ columns, data, canEdit = true, loading, columnToSearch }: DataTableProps<TData, TValue>) => {
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
@@ -58,7 +59,7 @@ const DataTable = <TData, TValue>({ columns, data, canEdit = true, loading }: Da
 
   return (
     <div className="space-y-4">
-      <DataTableToolbar table={table} canEdit={canEdit} />
+      <DataTableToolbar table={table} canEdit={canEdit} columnToSearch={columnToSearch} />
       <div className="border rounded-md">
         <Table>
           <TableHeader>

@@ -11,9 +11,10 @@ import { DataTableViewOptions } from "./data-table-view-options"
 interface DataTableToolbarProps<TData> {
   table: Table<TData>
   canEdit: boolean
+  columnToSearch?: string
 }
 
-export function DataTableToolbar<TData>({ table, canEdit }: DataTableToolbarProps<TData>) {
+export function DataTableToolbar<TData>({ table, canEdit, columnToSearch }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0
 
   return (
@@ -21,8 +22,8 @@ export function DataTableToolbar<TData>({ table, canEdit }: DataTableToolbarProp
       <div className="flex flex-1 items-center space-x-2">
         <Input
           placeholder="Search infos...."
-          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-          onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)}
+          value={(table.getColumn(columnToSearch || "name")?.getFilterValue() as string) ?? ""}
+          onChange={(event) => table.getColumn(columnToSearch || "name")?.setFilterValue(event.target.value)}
           className="w-[150px] lg:w-[250px]"
         />
         {isFiltered && (

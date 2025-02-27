@@ -9,7 +9,7 @@ const IdentificationData = () => {
       <div className="gap-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
         <Blocks />
       </div>
-      <DataTable columns={columns} data={data} canEdit={false} />
+      <DataTable columns={columns} data={data} canEdit={false} columnToSearch="name" />
     </Card>
   )
 }

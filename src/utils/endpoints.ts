@@ -9,3 +9,4 @@ export const GET_INSTITUE_CALENDAR_DATA_IP =
 export const UPDATE_INSTITUE_CALENDAR_DATA_IP =
   BACKEND_API + "/institute-calendar/post";
 export const GET_ROLE_STATISTICS_IP = BACKEND_IP + "/statistics/roles";
+export const GET_APP_REQUEST_STATISTICS_IP = BACKEND_IP + "/statistics/appointment-requests";

@@ -13,6 +13,7 @@ const ForgotPassword = lazy(() => import("@/pages/ForgotPassword"));
 const IdentificationData = lazy(() => import("@/pages/IdentificationData"));
 const InstitueCalendarData = lazy(() => import("@/pages/InstitueCalendarData"));
 const UserBehaviourStatistics = lazy(() => import("@/pages/UserBehaviourStatistics"));
+const AppointmentsRequestStatistics = lazy(() => import("@/pages/AppointmentsRequestStatistics"));
 
 export const routeConfig: IRouteConfig = {
   root: {
@@ -69,6 +70,11 @@ export const routeConfig: IRouteConfig = {
             path: "/dashboard/user-behaviour",
             element: UserBehaviourStatistics,
             title: "User Behaviour",
+          },
+          appointmentRequestsStatistics: {
+            path: "/dashboard/appointment-requests",
+            element: AppointmentsRequestStatistics,
+            title: "Yêu cầu lịch hẹn",
           },
         },
       },
