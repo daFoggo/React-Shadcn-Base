@@ -74,7 +74,7 @@ export const routeConfig: IRouteConfig = {
           appointmentRequestsStatistics: {
             path: "/dashboard/appointment-requests",
             element: AppointmentsRequestStatistics,
-            title: "Yêu cầu lịch hẹn",
+            title: "Appointment Requests",
           },
         },
       },
