@@ -8,7 +8,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { routeConfig } from "@/routes/config";
+import { navigationConfig } from "@/routes/config";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
@@ -31,7 +31,7 @@ const RegisterForm = ({ register }: IRegisterFormProps) => {
     const onSubmit = async (values: z.infer<typeof registerFormSchema>) => {
         const success = await register(values.email, values.username, values.password);
         if (success) {
-            navigate(routeConfig.auth.children.login.path);
+            navigate(navigationConfig.auth.children?.login.path ?? '/auth/login');
         }
     };
 

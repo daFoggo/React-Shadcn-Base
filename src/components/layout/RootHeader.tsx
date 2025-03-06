@@ -1,7 +1,7 @@
 import { useAuth } from "@/contexts/AuthContext"
-import { routeConfig } from "@/routes/config"
-import { INavItem } from "@/types/Navigation"
-import { LogIn } from "lucide-react"
+import { navigationConfig } from "@/routes/config"
+import { getNavbarItems } from "@/utils/navigation"
+import { LogIn } from 'lucide-react'
 import { useNavigate } from "react-router"
 import ThemeSwitcher from "../common/ThemeSwitcher"
 import UserMenu from "../common/UserMenu"
@@ -11,14 +11,15 @@ import RootMainNav from "./RootMainNav"
 import RootMobileNav from "./RootMobileNav"
 
 const RootHeader = () => {
-    const { isAuthenticated, user, } = useAuth();
-    const navigate = useNavigate();
-    const navItems: INavItem[] = [
-        {
-            title: routeConfig.dashboard.title,
-            href: routeConfig.dashboard.path,
-        }
-    ];
+    const { isAuthenticated, user } = useAuth()
+    const navigate = useNavigate()
+
+    // Get navigation items for the navbar from our unified config
+    const navItems = getNavbarItems()
+
+    // Get login path from navigation config
+    const loginPath = navigationConfig.auth.children?.login.path
+
     return (
         <header className="top-0 z-50 sticky bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b w-full">
             <div className="container-wrapper">
@@ -33,7 +34,7 @@ const RootHeader = () => {
                             <ThemeSwitcher />
                             {
                                 !isAuthenticated ? (
-                                    <Button onClick={() => navigate(routeConfig.auth.children.login.path)}>
+                                    <Button onClick={() => navigate(loginPath ?? '/login')}>
                                         Login
                                         <LogIn className="size-4" />
                                     </Button>

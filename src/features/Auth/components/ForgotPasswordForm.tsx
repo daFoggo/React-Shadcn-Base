@@ -15,7 +15,7 @@ import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { IForgotPasswordFormProps } from "../types/ForgotPasswordForm";
 import { forgotPasswordFormSchema } from "../utils/constants";
-import { routeConfig } from "@/routes/config";
+import {  navigationConfig } from "@/routes/config";
 
 
 const ForgotPassword = (
@@ -32,7 +32,7 @@ const ForgotPassword = (
     const onSubmit = async (values: z.infer<typeof forgotPasswordFormSchema>) => {
         const success = await forgotPassword(values.email);
         if (success) {
-            navigate(routeConfig.auth.children.login.path);
+            navigate(navigationConfig.auth.children?.login.path ?? '/auth/login');
         }
     };
 

@@ -1,30 +1,30 @@
-import { docsConfig } from "@/config/docs"
+
 import { cn } from "@/lib/utils"
-import { INavItem } from "@/types/Navigation"
+import { NavItem, appConfig } from "@/routes/config"
 import { Link, useLocation } from "react-router"
 import { Icons } from "../common/Icons"
 
-const RootMainNav = ({ navItems }: { navItems: INavItem[] }
-) => {
+const RootMainNav = ({ navItems }: { navItems: NavItem[] }) => {
     const { pathname } = useLocation()
+
     return (
         <div className="hidden md:flex mr-4">
             <Link to="/" className="flex items-center gap-2 mr-4 lg:mr-6">
                 <Icons.logo className="size-4" />
                 <span className="hidden lg:inline-block font-bold">
-                    {docsConfig.websiteName}
+                    {appConfig.name}
                 </span>
             </Link>
             <nav className="flex items-center gap-4 xl:gap-6 text-sm">
                 {
-                    navItems.map((item: INavItem, index: number) => (
+                    navItems.map((item: NavItem) => (
                         <Link
-                            to={item.href ?? '/dashboard'}
+                            to={item.path}
                             className={cn(
                                 "transition-colors hover:text-foreground/80",
-                                pathname === item.href ? "text-foreground" : "text-foreground/80"
+                                pathname === item.path ? "text-foreground" : "text-foreground/80"
                             )}
-                            key={index}
+                            key={item.id}
                         >
                             {item.title}
                         </Link>

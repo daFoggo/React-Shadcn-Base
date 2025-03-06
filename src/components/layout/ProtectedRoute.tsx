@@ -1,11 +1,14 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { Navigate, useLocation } from "react-router";
 import PageLoader from "../common/PageLoader";
-import { routeConfig } from "@/routes/config";
+import { navigationConfig } from "@/routes/config";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated, loading } = useAuth();
   const location = useLocation();
+  
+  // Get the login path from the navigation config
+  const loginPath = navigationConfig.auth.children?.login.path;
 
   if (loading) {
     return (
@@ -14,7 +17,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   }
 
   if (!isAuthenticated) {
-    return <Navigate to={routeConfig.auth.children.login.path} state={{ from: location }} replace />;
+    return <Navigate to={loginPath ?? '/'} state={{ from: location }} replace />;
   }
 
   return children;

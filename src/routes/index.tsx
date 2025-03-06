@@ -4,7 +4,8 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 import RootLayout from "@/layouts/RootLayout";
 import { IBaseRoute } from "@/types/RouteConfig";
 import { createBrowserRouter, Navigate } from "react-router";
-import { routeConfig } from "./config";
+import { navigationConfig } from "./config";
+
 
 const createRoutes = (config: IBaseRoute) => {
   const routes = [];
@@ -27,23 +28,23 @@ const createRoutes = (config: IBaseRoute) => {
 
 const rootRoutes = [
   {
-    path: routeConfig.root.path,
+    path: navigationConfig.root.path,
     element: <RootLayout />,
     errorElement: <div>Not Found</div>,
     children: [
       {
         index: true,
-        element: <routeConfig.root.element />,
+        element: navigationConfig.root.element ? <navigationConfig.root.element /> : null,
       },
     ],
   },
   {
-    path: routeConfig.auth.path,
+    path: navigationConfig.auth.path,
     element: <AuthLayout />,
-    children: createRoutes(routeConfig.auth),
+    children: createRoutes(navigationConfig.auth),
   },
   {
-    path: routeConfig.dashboard.path,
+    path: navigationConfig.dashboard.path,
     element: (
       <ProtectedRoute>
         <DashboardLayout />
@@ -52,9 +53,9 @@ const rootRoutes = [
     children: [
       {
         index: true,
-        element: <Navigate to={Object.values(routeConfig.dashboard.children?.dataManagement?.children || {})[0]?.path || '/'} replace />,
+        element: <Navigate to={Object.values(navigationConfig.dashboard.children?.dataManagement?.children || {})[0]?.path || '/'} replace />,
       },
-      ...createRoutes(routeConfig.dashboard),
+      ...createRoutes(navigationConfig.dashboard),
     ],
   },
 ];

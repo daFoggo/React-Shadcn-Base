@@ -1,12 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Drawer, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
-import { docsConfig } from "@/config/docs"
-import { INavItem } from "@/types/Navigation"
-import { Menu } from "lucide-react"
+import { NavItem, appConfig } from "@/routes/config"
+import { Menu } from 'lucide-react'
 import { useState } from "react"
 import { Link } from "react-router"
 
-const RootMobileNav = ({ navItems }: { navItems: INavItem[] }) => {
+const RootMobileNav = ({ navItems }: { navItems: NavItem[] }) => {
     const [open, setOpen] = useState(false)
 
     return (
@@ -22,13 +21,17 @@ const RootMobileNav = ({ navItems }: { navItems: INavItem[] }) => {
             </DrawerTrigger>
             <DrawerContent className="p-0 max-h-[60vh]">
                 <DrawerTitle className="mx-6 my-2 font-bold">
-                    {docsConfig.websiteName}</DrawerTitle>
+                    {appConfig.name}</DrawerTitle>
                 <DrawerDescription></DrawerDescription>
                 <div className="p-6 overflow-auto">
                     <div className="flex flex-col space-y-3">
                         {
-                            navItems.map((item, index) => (
-                                <MobileLink href={item.href || "/"} onOpenChange={setOpen} key={index}>
+                            navItems.map((item) => (
+                                <MobileLink
+                                    href={item.path}
+                                    onOpenChange={setOpen}
+                                    key={item.id}
+                                >
                                     {item.title}
                                 </MobileLink>
                             ))
@@ -56,4 +59,3 @@ const MobileLink = ({ href, onOpenChange, className, children }: IMobileLinkProp
         </Link>
     )
 }
-

@@ -1,3 +1,4 @@
+import { Icons } from "@/components/common/Icons";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -8,14 +9,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { routeConfig } from "@/routes/config";
+import { navigationConfig } from "@/routes/config";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { ILoginFormProps } from "../types/LoginForm";
 import { loginFormSchema } from "../utils/constants";
-import { Icons } from "@/components/common/Icons";
 
 const LoginForm = ({ login, loadingAPI }: ILoginFormProps) => {
   const form = useForm<z.infer<typeof loginFormSchema>>({
@@ -30,7 +30,7 @@ const LoginForm = ({ login, loadingAPI }: ILoginFormProps) => {
   const onSubmit = async (values: z.infer<typeof loginFormSchema>) => {
     const success = await login(values.username, values.password);
     if (success) {
-      navigate(routeConfig.dashboard.path);
+      navigate(navigationConfig.dashboard.path);
     }
   };
 
@@ -70,7 +70,7 @@ const LoginForm = ({ login, loadingAPI }: ILoginFormProps) => {
                 <div className="flex items-center">
                   <FormLabel>Password</FormLabel>
                   <Link
-                    to={routeConfig.auth.children.forgotPassword.path}
+                    to={navigationConfig.auth.children?.forgotPassword.path ?? "/auth/forgot-password"}
                     className="ml-auto text-muted-foreground text-sm hover:underline underline-offset-4"
                   >
                     Forgot your password?

@@ -1,5 +1,5 @@
 import { useBreadcrumb } from "@/contexts/BreadcrumbContext";
-import { routeConfig } from "@/routes/config";
+import { navigationConfig } from "@/routes/config";
 import { IBreadcrumbItem } from "@/types/BreadcrumbItem";
 import { IBaseRoute } from "@/types/RouteConfig";
 import { useEffect } from "react";
@@ -7,12 +7,12 @@ import { useLocation } from "react-router";
 
 const findRouteConfig = (
   path: string,
-  config: IBaseRoute = routeConfig.dashboard
+  config: IBaseRoute = navigationConfig.dashboard
 ): IBaseRoute | null => {
-  if ('path' in config && config.path === path) return config as IBaseRoute;
+  if ("path" in config && config.path === path) return config as IBaseRoute;
   if (config.children) {
     for (const child of Object.values(config.children)) {
-      if ('path' in child) {
+      if ("path" in child) {
         const found = findRouteConfig(path, child as IBaseRoute);
         if (found) return found;
       }
@@ -48,9 +48,9 @@ export const useBreadcrumbUpdate = (): void => {
     );
 
     breadcrumbs.unshift({
-      title: routeConfig.dashboard.title || "Dashboard",
-      path: routeConfig.dashboard.path || "/dashboard",
-      isPage: location.pathname === routeConfig.dashboard.path,
+      title: navigationConfig.dashboard.title || "Dashboard",
+      path: navigationConfig.dashboard.path || "/dashboard",
+      isPage: location.pathname === navigationConfig.dashboard.path,
     });
 
     setBreadcrumbs(breadcrumbs);
