@@ -7,7 +7,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useTheme } from "./ThemeProvider"
+import { useTheme } from "./theme-provider"
 
 const ThemeSwitcher = () => {
     const { setTheme } = useTheme()
@@ -23,7 +23,7 @@ const ThemeSwitcher = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => setTheme("light")}>
-                    Light 
+                    Light
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("dark")}>
                     Dark

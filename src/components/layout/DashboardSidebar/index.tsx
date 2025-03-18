@@ -9,11 +9,11 @@ import {
 } from "@/components/ui/sidebar"
 import { useAuth } from "@/contexts/AuthContext"
 import { formatSidebarItems } from "@/utils/navigation"
-import ThemeSwitcher from "../common/ThemeSwitcher"
-import UserMenu from "../common/UserMenu"
-import DashboardNavMain from "./DashboardNavMain"
-import DashboardNavProjects from "./DashboardNavProjects"
-import DashboardTeamSwitcher from "./DashboardTeamSwitcher"
+import ThemeSwitcher from "../../common/ThemeSwitcher"
+import UserMenu from "../../common/UserMenu"
+import DashboardNavMain from "./dashboard-nav-main"
+import DashboardNavProjects from "./dashboard-nav-project"
+import DashboardTeamSwitcher from "./dashboard-team-switcher"
 
 const DashboardSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
     const { user } = useAuth()

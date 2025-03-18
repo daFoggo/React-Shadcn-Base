@@ -59,7 +59,7 @@ export const columns: ColumnDef<IRecord>[] = [
 export const data: IRecord[] = [
   {
     id: 1,
-    purpose: "ABC Project Report Meeting",
+    purpose: "ABC IProject Report Meeting",
     startTime: "2024-02-24T09:00:00",
     endTime: "2024-02-24T10:30:00",
     location: "Meeting Room A - 3rd Floor",

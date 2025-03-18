@@ -1,7 +1,7 @@
 import { Icons } from "@/components/common/Icons";
-import { docsConfig } from "@/config/docs";
 import { useAuth } from "@/contexts/AuthContext";
 import ForgotPasswordForm from "@/features/Auth/components/ForgotPasswordForm";
+import { appConfig } from "@/routes/config";
 import { Link } from "react-router";
 
 const ForgotPassword = () => {
@@ -14,7 +14,7 @@ const ForgotPassword = () => {
                         <div className="flex justify-center items-center bg-muted rounded-md w-6 h-6 text-muted-foreground" >
                             <Icons.logo className="size-4" />
                         </div>
-                        {docsConfig.websiteName}
+                        {appConfig.name}
                     </Link>
                 </div>
                 <div className="flex flex-1 justify-center items-center">

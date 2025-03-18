@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { RouterProvider } from "react-router";
-import { ThemeProvider } from "./components/common/ThemeProvider";
+import { ThemeProvider } from "./components/common/ThemeSwitcher/theme-provider";
 import { AuthProvider } from "./contexts/AuthContext";
 import "./App.css";
 import { router } from "./routes";
-import PageLoader from "./components/common/PageLoader";
+import { PageLoader } from "./components/ui/page-loader";
 
 const App = () => {
   return (

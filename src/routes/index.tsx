@@ -6,7 +6,6 @@ import { IBaseRoute } from "@/types/RouteConfig";
 import { createBrowserRouter, Navigate } from "react-router";
 import { navigationConfig } from "./config";
 
-
 const createRoutes = (config: IBaseRoute) => {
   const routes = [];
 

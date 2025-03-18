@@ -1,6 +1,5 @@
-import { docsConfig } from "@/config/docs"
+import { appConfig } from "@/routes/config"
 import { Link } from "react-router"
-
 
 const RootFooter = () => {
     return (
@@ -10,16 +9,16 @@ const RootFooter = () => {
                     <div className="text-muted-foreground text-sm md:text-left text-center text-balance leading-loose">
                         Built by{" "}
                         <Link
-                            to={docsConfig.authorUrl}
+                            to={appConfig.authorUrl}
                             target="_blank"
                             rel="noreferrer"
                             className="font-medium underline underline-offset-4"
                         >
-                            {docsConfig.authorName}
+                            {appConfig.authorName}
                         </Link>
                         . The source code is available on{" "}
                         <Link
-                            to={docsConfig.projectUrl}
+                            to={appConfig.projectUrl}
                             target="_blank"
                             rel="noreferrer"
                             className="font-medium underline underline-offset-4"

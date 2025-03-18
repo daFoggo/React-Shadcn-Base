@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Drawer, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
-import { NavItem, appConfig } from "@/routes/config"
+import { appConfig } from "@/routes/config"
+import { INavItem } from "@/types/NavigationConfig"
 import { Menu } from 'lucide-react'
 import { useState } from "react"
 import { Link } from "react-router"
 
-const RootMobileNav = ({ navItems }: { navItems: NavItem[] }) => {
+const RootMobileNav = ({ navItems }: { navItems: INavItem[] }) => {
     const [open, setOpen] = useState(false)
 
     return (

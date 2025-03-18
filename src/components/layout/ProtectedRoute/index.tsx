@@ -1,6 +1,6 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { Navigate, useLocation } from "react-router";
-import PageLoader from "../common/PageLoader";
+import { PageLoader } from "../../ui/page-loader";
 import { navigationConfig } from "@/routes/config";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {

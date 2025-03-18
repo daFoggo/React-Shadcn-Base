@@ -10,7 +10,7 @@ import {
     DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import { useAuth } from '@/contexts/AuthContext'
-import { IUserMenuProps } from '@/types/UserMenu'
+import { IUserMenuProps } from './type'
 import { LogOut, Settings, User } from 'lucide-react'
 
 const UserMenu = ({ user, variant = 'default' }: IUserMenuProps) => {

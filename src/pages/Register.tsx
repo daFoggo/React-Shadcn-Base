@@ -1,7 +1,7 @@
 import { Icons } from "@/components/common/Icons";
-import { docsConfig } from "@/config/docs";
 import { useAuth } from "@/contexts/AuthContext";
 import RegisterForm from "@/features/Auth/components/RegisterForm";
+import { appConfig } from "@/routes/config";
 import { Link } from "react-router";
 
 const Register = () => {
@@ -14,7 +14,7 @@ const Register = () => {
                         <div className="flex justify-center items-center bg-muted rounded-md w-6 h-6 text-muted-foreground" >
                             <Icons.logo className="size-4" />
                         </div>
-                        {docsConfig.websiteName}
+                        {appConfig.name}
                     </Link>
                 </div>
                 <div className="flex flex-1 justify-center items-center">

@@ -1,15 +1,15 @@
 import { cn } from "@/lib/utils"
-import { NavItem } from "@/routes/config"
+import { INavItem } from "@/types/NavigationConfig"
 import { type DialogProps } from "@radix-ui/react-dialog"
 import { Laptop, LinkIcon, Moon, Sun } from 'lucide-react'
 import { useCallback, useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-import { useTheme } from "../common/ThemeProvider"
+import { useTheme } from "../common/ThemeSwitcher/theme-provider"
 import { Button } from "./button"
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "./command"
 
 const RootCommandMenu = ({ navItems, ...props }: {
-    navItems: NavItem[];
+    navItems: INavItem[];
 } & DialogProps) => {
     const [open, setOpen] = useState(false)
     const { setTheme } = useTheme()

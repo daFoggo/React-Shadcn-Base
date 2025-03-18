@@ -1,10 +1,10 @@
-
 import { cn } from "@/lib/utils"
-import { NavItem, appConfig } from "@/routes/config"
+import { appConfig } from "@/routes/config"
+import { INavItem } from "@/types/NavigationConfig"
 import { Link, useLocation } from "react-router"
-import { Icons } from "../common/Icons"
+import { Icons } from "../../common/Icons"
 
-const RootMainNav = ({ navItems }: { navItems: NavItem[] }) => {
+const RootMainNav = ({ navItems }: { navItems: INavItem[] }) => {
     const { pathname } = useLocation()
 
     return (
@@ -17,7 +17,7 @@ const RootMainNav = ({ navItems }: { navItems: NavItem[] }) => {
             </Link>
             <nav className="flex items-center gap-4 xl:gap-6 text-sm">
                 {
-                    navItems.map((item: NavItem) => (
+                    navItems.map((item: INavItem) => (
                         <Link
                             to={item.path}
                             className={cn(

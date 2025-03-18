@@ -1,16 +1,16 @@
 import {
-  NavItem,
   appConfig,
   navigationConfig,
   projectsConfig,
 } from "@/routes/config";
+import { INavItem } from "@/types/NavigationConfig";
 import { type Location } from "react-router";
 
 // Flatten the navigation tree for routing
-export function getRoutes(): NavItem[] {
-  const routes: NavItem[] = [];
+export function getRoutes(): INavItem[] {
+  const routes: INavItem[] = [];
 
-  function traverseRoutes(items: Record<string, NavItem>) {
+  function traverseRoutes(items: Record<string, INavItem>) {
     Object.values(items).forEach((item) => {
       if (item.element) {
         routes.push(item);
@@ -27,10 +27,10 @@ export function getRoutes(): NavItem[] {
 }
 
 // Get sidebar navigation items
-export function getSidebarNavItems(): NavItem[] {
-  const sidebarItems: NavItem[] = [];
+export function getSidebarNavItems(): INavItem[] {
+  const sidebarItems: INavItem[] = [];
 
-  function traverseSidebar(items: Record<string, NavItem>) {
+  function traverseSidebar(items: Record<string, INavItem>) {
     Object.values(items).forEach((item) => {
       if (item.showInSidebar) {
         sidebarItems.push(item);
@@ -47,17 +47,17 @@ export function getSidebarNavItems(): NavItem[] {
 }
 
 // Get navbar items
-export function getNavbarItems(): NavItem[] {
+export function getNavbarItems(): INavItem[] {
   return Object.values(navigationConfig).filter((item) => item.showInNavbar);
 }
 
 // Get breadcrumb items based on current path
-export function getBreadcrumbItems(location: Location): NavItem[] {
-  const breadcrumbs: NavItem[] = [];
+export function getBreadcrumbItems(location: Location): INavItem[] {
+  const breadcrumbs: INavItem[] = [];
   const currentPath = location.pathname;
 
   function findBreadcrumbPath(
-    items: Record<string, NavItem>,
+    items: Record<string, INavItem>,
     path: string
   ): boolean {
     for (const key in items) {
@@ -100,9 +100,9 @@ export function getBreadcrumbItems(location: Location): NavItem[] {
 
 // Helper to find a parent by key
 function findParentByKey(
-  items: Record<string, NavItem>,
+  items: Record<string, INavItem>,
   key: string
-): NavItem | null {
+): INavItem | null {
   for (const itemKey in items) {
     const item = items[itemKey];
 

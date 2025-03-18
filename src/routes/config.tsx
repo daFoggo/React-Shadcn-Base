@@ -1,8 +1,9 @@
 import { Icons } from '@/components/common/Icons'
-import { AreaChartIcon, Database, Frame, type LucideIcon } from 'lucide-react'
-import { lazy, type ReactNode } from "react"
+import { IAppConfig, INavItem, IProject } from '@/types/NavigationConfig'
+import { AreaChartIcon, Database, Frame } from 'lucide-react'
+import { lazy } from "react"
 
-const Landing = lazy(() => import("@/pages/Landing"))
+const Landing = lazy(() => import("@/pages/Home"))
 const Login = lazy(() => import("@/pages/Login"))
 const Register = lazy(() => import("@/pages/Register"))
 const ForgotPassword = lazy(() => import("@/pages/ForgotPassword"))
@@ -11,39 +12,16 @@ const InstitueCalendarData = lazy(() => import("@/pages/InstitueCalendarData"))
 const UserBehaviourStatistics = lazy(() => import("@/pages/UserBehaviourStatistics"))
 const AppointmentsRequestStatistics = lazy(() => import("@/pages/AppointmentsRequestStatistics"))
 
-export interface NavItem {
-  id: string
-  title: string
-  path: string
-  element?: React.LazyExoticComponent<() => JSX.Element> | (() => ReactNode)
-  icon?: LucideIcon
-  children?: Record<string, NavItem>
-  isExternal?: boolean
-  showInSidebar?: boolean
-  showInNavbar?: boolean
-  showInBreadcrumb?: boolean
-  parent?: string
-}
-
-export interface Project {
-  name: string
-  url: string
-  icon: LucideIcon
-}
-
-export interface AppConfig {
-  name: string
-  logo: React.ElementType
-  plan?: string
-}
-
-export const appConfig: AppConfig = {
-  name: "React Shadcn Base",
+export const appConfig: IAppConfig = {
+  name: "Open Medical Vault",
   logo: Icons.logo,
-  plan: "Organization"
+  plan: "Organization",
+  authorName: "daFoggo",
+  authorUrl: "https://github.com/daFoggo",
+  projectUrl: "https://github.com/daFoggo",
 }
 
-export const navigationConfig: Record<string, NavItem> = {
+export const navigationConfig: Record<string, INavItem> = {
   root: {
     id: "root",
     title: "Home",
@@ -152,7 +130,7 @@ export const navigationConfig: Record<string, NavItem> = {
   }
 }
 
-export const projectsConfig: Project[] = [
+export const projectsConfig: IProject[] = [
   {
     name: "Design Engineering",
     url: "#",
