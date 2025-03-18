@@ -13,7 +13,7 @@ const UserBehaviourStatistics = lazy(() => import("@/pages/UserBehaviourStatisti
 const AppointmentsRequestStatistics = lazy(() => import("@/pages/AppointmentsRequestStatistics"))
 
 export const appConfig: IAppConfig = {
-  name: "Open Medical Vault",
+  name: "React Shadcn Base",
   logo: Icons.logo,
   plan: "Organization",
   authorName: "daFoggo",
